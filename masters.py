@@ -4,11 +4,11 @@ def generate_numeric_recursion_tree(n):
     
     output.append(f"Recursion Tree Analysis for T(n) = 2T(n/2) + n^2")
     output.append(f"Testing with n = {n}\n")
-    output.append("-" * 105)
+    output.append("-" * 75)
     
-    header = f"{'Level':<10} | {'Subproblems':<15} | {'Subproblem Size':<20} | {'Cost per Subproblem':<25} | {'Total Cost at Level'}"
+    header = f"{'Level':<10} | {'Subproblems':<15} | {'Subproblem Size':<20} | {'Cost at Level'}"
     output.append(header)
-    output.append("-" * 105)
+    output.append("-" * 75)
     
     
     level = 0
@@ -23,14 +23,14 @@ def generate_numeric_recursion_tree(n):
         total_work += total_cost_level
         
        
-        row = f"{level:<10} | {num_subproblems:<15} | {subproblem_size:<20} | {cost_per_subproblem:<25} | {total_cost_level}"
+        row = f"{level:<10} | {num_subproblems:<15} | {subproblem_size:<20} | {total_cost_level}"
         output.append(row)
         
         subproblem_size = subproblem_size // 2
         level += 1
         
    
-    output.append("-" * 105)
+    output.append("-" * 75)
     output.append(f"\nCalculated Total Work T({n}) = {total_work}")
     
     return "\n".join(output)
@@ -53,8 +53,6 @@ if __name__ == "__main__":
             filename = "recursion_tree_output.txt"
             with open(filename, "w") as file:
                 file.write(result_text)
-                
-            print(f"\n[Success] Results have been cleanly saved to '{filename}'.")
             
     except ValueError:
         print("Invalid input. Please enter a valid integer for n.")
