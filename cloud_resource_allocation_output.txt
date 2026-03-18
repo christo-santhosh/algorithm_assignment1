@@ -1,0 +1,26 @@
+
+Resources:
+  R2 | Capacity: 100 | Cost: 30
+  R1 | Capacity: 150 | Cost: 45
+  R3 | Capacity: 200 | Cost: 70
+
+Tasks:
+  U1 | Requirement: 60
+  U2 | Requirement: 80
+  U3 | Requirement: 90
+
+Allocation Steps:
+  U1 -> R2 (cost=30) [SELECTED]
+  U2 -> R2 (insufficient capacity, skipped)
+  U2 -> R1 (cost=45) [SELECTED]
+  U3 -> R2 (insufficient capacity, skipped)
+  U3 -> R1 (insufficient capacity, skipped)
+  U3 -> R3 (cost=70) [SELECTED]
+
+Final Allocation:
+  U1 -> R2
+  U2 -> R1
+  U3 -> R3
+
+Total Cost: 145
+Time Complexity: O(n x m)
